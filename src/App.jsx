@@ -220,7 +220,7 @@ const content = {
             "Ein ERP-System für Apotheken mit Medikamentenabrechnung, chargenbezogener Lagerverwaltung, Einkauf, Verkauf, Retouren, Bestandsanpassungen und Geschäftsberichten.",
           tech: ["React", "Node.js", "Express", "MySQL", "REST API"],
           githubUrl: "https://github.com/Noorwithcode/PharmaERP",
-          liveUrl: "https://pharma-erp-opal.vercel.app/dashboard",
+          liveUrl: "https://pharma-erp-opal.vercel.app/login",
         },
         {
           number: "03",

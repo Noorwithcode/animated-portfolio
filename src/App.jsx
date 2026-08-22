@@ -336,16 +336,21 @@ function App() {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
+          const ratio = entry.intersectionRatio;
+
+          // Hysteresis:
+          // enter only after the element is clearly visible,
+          // reset only when it is almost completely outside.
+          if (ratio >= 0.15) {
             entry.target.classList.add("show");
-          } else {
+          } else if (ratio <= 0.01) {
             entry.target.classList.remove("show");
           }
         });
       },
       {
-        threshold: 0.12,
-        rootMargin: "-6% 0px -6% 0px",
+        threshold: [0, 0.01, 0.15],
+        rootMargin: "0px 0px -4% 0px",
       }
     );
 

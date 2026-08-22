@@ -106,16 +106,6 @@ const content = {
           githubUrl: "https://github.com/Noorwithcode/PulseOps",
           liveUrl: null,
         },
-        {
-          number: "04",
-          title: "Smart Map Platform",
-          subtitle: "Navigation & Location System",
-          description:
-            "Interactive map application with location search, directions, markers and responsive navigation interfaces.",
-          tech: ["JavaScript", "Leaflet", "Nominatim", "CSS"],
-          githubUrl: "https://github.com/Noorwithcode/DSI-Map",
-          liveUrl: null,
-        },
       ],
     },
     education: {
@@ -240,16 +230,6 @@ const content = {
             "Eine Operations-Plattform für Server-Monitoring, Heartbeat-Tracking, automatische Incident-Abläufe, Bestätigung, Untersuchung und Audit-Historie.",
           tech: ["Node.js", "Express", "MySQL", "JWT", "REST API"],
           githubUrl: "https://github.com/Noorwithcode/PulseOps",
-          liveUrl: null,
-        },
-        {
-          number: "04",
-          title: "Smart Map Platform",
-          subtitle: "Navigation & Standortsystem",
-          description:
-            "Eine interaktive Kartenanwendung mit Standortsuche, Routenführung, Markern und responsiver Navigation.",
-          tech: ["JavaScript", "Leaflet", "Nominatim", "CSS"],
-          githubUrl: "https://github.com/Noorwithcode/DSI-Map",
           liveUrl: null,
         },
       ],
@@ -458,7 +438,7 @@ function App() {
 
           <div className="hero-stats">
             <div>
-              <strong>04</strong>
+              <strong>03</strong>
               <span>{t.hero.statProjects}</span>
             </div>
 

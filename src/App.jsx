@@ -94,7 +94,7 @@ const content = {
             "A pharmacy ERP system for medicine billing, batch-wise inventory, stock tracking, purchases, sales, returns, adjustments and business reporting.",
           tech: ["React", "Node.js", "Express", "MySQL", "REST API"],
           githubUrl: "https://github.com/Noorwithcode/PharmaERP",
-          liveUrl: null,
+          liveUrl: "https://pharma-erp-opal.vercel.app/dashboard",
         },
         {
           number: "03",
@@ -220,7 +220,7 @@ const content = {
             "Ein ERP-System für Apotheken mit Medikamentenabrechnung, chargenbezogener Lagerverwaltung, Einkauf, Verkauf, Retouren, Bestandsanpassungen und Geschäftsberichten.",
           tech: ["React", "Node.js", "Express", "MySQL", "REST API"],
           githubUrl: "https://github.com/Noorwithcode/PharmaERP",
-          liveUrl: null,
+          liveUrl: "https://pharma-erp-opal.vercel.app/dashboard",
         },
         {
           number: "03",

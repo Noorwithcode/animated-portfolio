@@ -4266,3 +4266,280 @@ body {
       transform 0.68s cubic-bezier(0.16, 1, 0.3, 1) !important;
   }
 }
+
+/* =========================================================
+   PROJECT ACTIONS — LIVE DEMO + GITHUB
+   Added for the 4-project portfolio showcase.
+========================================================= */
+
+.project-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.project-link {
+  min-height: 46px;
+  padding: 0 17px;
+  border-radius: 999px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  background: rgba(255, 255, 255, 0.025);
+  color: #d8d8d8;
+
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+
+  transition:
+    transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.28s ease,
+    background 0.28s ease,
+    color 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+.project-link strong {
+  font-size: 15px;
+  font-weight: 500;
+  transition: transform 0.28s ease;
+}
+
+.project-link-github svg {
+  font-size: 17px;
+}
+
+.project-link-live:not(.project-link-disabled) {
+  background: #a5ff3f;
+  border-color: #a5ff3f;
+  color: #050505;
+}
+
+.project-link-github:hover {
+  transform: translate3d(0, -3px, 0);
+  border-color: rgba(165, 255, 63, 0.38);
+  color: #a5ff3f;
+  background: rgba(165, 255, 63, 0.045);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+}
+
+.project-link-live:not(.project-link-disabled):hover {
+  transform: translate3d(0, -3px, 0);
+  box-shadow: 0 12px 34px rgba(165, 255, 63, 0.13);
+}
+
+.project-link:hover strong {
+  transform: translate3d(3px, -3px, 0);
+}
+
+.project-link-disabled {
+  cursor: default;
+  color: #777;
+  background: rgba(255, 255, 255, 0.018);
+  border-style: dashed;
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.project-link-disabled small {
+  padding-left: 9px;
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+  color: #a5ff3f;
+  font-size: 7px;
+  letter-spacing: 0.12em;
+}
+
+@media (max-width: 760px) {
+  .project-actions {
+    margin-top: 24px;
+  }
+
+  .project-link {
+    min-height: 44px;
+    padding: 0 14px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .project-link {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .project-link-github svg {
+    margin-right: auto;
+  }
+
+  .project-link-github span {
+    margin-right: auto;
+  }
+
+  .project-link-disabled small {
+    margin-left: auto;
+  }
+}
+
+/* =========================================================
+   INTERNATIONAL LANGUAGE SELECTOR — EN / DE
+========================================================= */
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.language-selector {
+  min-height: 42px;
+  padding: 0 10px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 999px;
+
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.012)),
+    #090909;
+
+  color: #d8d8d8;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.045),
+    0 8px 26px rgba(0,0,0,0.22);
+
+  transition:
+    border-color 0.28s ease,
+    box-shadow 0.28s ease,
+    transform 0.28s ease;
+}
+
+.language-selector:hover {
+  transform: translateY(-2px);
+  border-color: rgba(165, 255, 63, 0.32);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.06),
+    0 10px 30px rgba(0,0,0,0.30),
+    0 0 22px rgba(165,255,63,0.045);
+}
+
+.language-icon {
+  flex: 0 0 auto;
+  color: #a5ff3f;
+  font-size: 17px;
+}
+
+.language-selector select {
+  appearance: none;
+  -webkit-appearance: none;
+
+  min-width: 38px;
+
+  padding: 0 12px 0 0;
+
+  border: 0;
+  outline: 0;
+
+  background:
+    linear-gradient(45deg, transparent 50%, #737373 50%) right 2px center / 5px 5px no-repeat,
+    linear-gradient(135deg, #737373 50%, transparent 50%) right -1px center / 5px 5px no-repeat;
+
+  color: #f1f1f1;
+
+  font: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+
+  cursor: pointer;
+}
+
+.language-selector select option {
+  background: #0b0b0b;
+  color: #ffffff;
+}
+
+/* German words can be a little longer, so prevent awkward overflow. */
+html[lang="de"] .section-heading h2,
+html[lang="de"] .contact-title,
+html[lang="de"] .project-content h3 {
+  text-wrap: balance;
+}
+
+@media (max-width: 1100px) {
+  .nav-actions {
+    margin-left: auto;
+  }
+
+  .nav-contact {
+    display: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .nav-actions {
+    gap: 8px;
+  }
+
+  .language-selector {
+    min-height: 40px;
+    padding: 0 8px;
+  }
+
+  .language-icon {
+    font-size: 16px;
+  }
+
+  .language-selector select {
+    min-width: 34px;
+    font-size: 10px;
+  }
+
+  html[lang="de"] .contact-title {
+    font-size: clamp(48px, 14.3vw, 70px);
+    letter-spacing: -3.5px;
+    line-height: 0.95;
+  }
+}
+
+@media (max-width: 480px) {
+  .language-selector {
+    min-height: 38px;
+    padding: 0 7px;
+  }
+
+  .language-icon {
+    font-size: 15px;
+  }
+
+  .language-selector select {
+    min-width: 31px;
+    padding-right: 10px;
+    font-size: 9px;
+  }
+
+  html[lang="de"] .contact-title {
+    font-size: clamp(43px, 13.5vw, 58px);
+    letter-spacing: -2.7px;
+  }
+
+  html[lang="de"] .project-content h3 {
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+}

@@ -1,50 +1,303 @@
-
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
+import { MdLanguage } from "react-icons/md";
 import React, { useEffect, useState } from "react";
 import "./styles.css";
 
-const roles = [
-  "Software Developer",
-  "Application Support Specialist",
-  "React Developer",
-  "IT Support Engineer",
-];
+const content = {
+  en: {
+    nav: {
+      home: "Home",
+      about: "About",
+      skills: "Skills",
+      projects: "Projects",
+      education: "Education",
+      contact: "Contact",
+      talk: "Let's Talk",
+    },
+    roles: [
+      "Software Developer",
+      "Application Support Specialist",
+      "React Developer",
+      "IT Support Engineer",
+    ],
+    hero: {
+      availability: "AVAILABLE FOR OPPORTUNITIES",
+      intro: "HELLO, I'M",
+      typingPrefix: "I build as a ",
+      description:
+        "I create modern web applications and practical software solutions focused on performance, usability and real-world business problems.",
+      explore: "Explore Projects",
+      contact: "Contact Me",
+      statProjects: "Portfolio Projects",
+      statStack: "Stack Development",
+      statLearning: "Learning Mindset",
+      scroll: "SCROLL",
+    },
+    terminal: {
+      role: "Software Developer / IT Support",
+      status: "✓ Ready to build something amazing",
+    },
+    about: {
+      eyebrow: "01 / ABOUT",
+      title1: "Building software that",
+      title2: "solves problems.",
+      lead:
+        "I'm a technology enthusiast focused on software development, application support and creating reliable digital products.",
+      body:
+        "My approach combines development skills with troubleshooting and problem-solving. I enjoy taking an idea from concept to a working application with clean UI, structured backend systems and practical features.",
+      link: "SEE WHAT I'VE BUILT",
+      focus: "CURRENT FOCUS",
+      focusItems: [
+        "Full Stack Development",
+        "Application Support",
+        "Enterprise Systems",
+        "Modern UI / UX",
+      ],
+    },
+    skills: {
+      eyebrow: "02 / SKILLS",
+      title1: "My technology",
+      title2: "toolbox.",
+      frontend: "Frontend",
+      backend: "Backend",
+      database: "Database",
+      tools: "Tools",
+      responsive: "Responsive Design",
+      databaseDesign: "Database Design",
+    },
+    projects: {
+      eyebrow: "03 / SELECTED WORK",
+      title1: "Projects that",
+      title2: "make an impact.",
+      featured: "FEATURED PROJECT",
+      live: "Live Demo",
+      comingSoon: "COMING SOON",
+      github: "GitHub",
+      items: [
+        {
+          number: "01",
+          title: "Enterprise IT Helpdesk",
+          subtitle: "Incident Management Platform",
+          description:
+            "A complete enterprise helpdesk platform for managing tickets, agents, SLA deadlines, priorities, activity logs and support operations.",
+          tech: ["React", "Node.js", "Express", "MySQL", "JWT"],
+          githubUrl: "https://github.com/Noorwithcode/enterprise-it-helpdesk",
+          liveUrl: null,
+          featured: true,
+        },
+        {
+          number: "02",
+          title: "PharmaERP",
+          subtitle: "Medicine Billing & Inventory Management",
+          description:
+            "A pharmacy ERP system for medicine billing, batch-wise inventory, stock tracking, purchases, sales, returns, adjustments and business reporting.",
+          tech: ["React", "Node.js", "Express", "MySQL", "REST API"],
+          githubUrl: "https://github.com/Noorwithcode/PharmaERP",
+          liveUrl: null,
+        },
+        {
+          number: "03",
+          title: "PulseOps",
+          subtitle: "Server Monitoring & Incident Operations",
+          description:
+            "An operations platform for server health monitoring, heartbeat tracking, automatic incident flows, acknowledgement, investigation and audit history.",
+          tech: ["Node.js", "Express", "MySQL", "JWT", "REST API"],
+          githubUrl: "https://github.com/Noorwithcode/PulseOps",
+          liveUrl: null,
+        },
+        {
+          number: "04",
+          title: "Smart Map Platform",
+          subtitle: "Navigation & Location System",
+          description:
+            "Interactive map application with location search, directions, markers and responsive navigation interfaces.",
+          tech: ["JavaScript", "Leaflet", "Nominatim", "CSS"],
+          githubUrl: "https://github.com/Noorwithcode/DSI-Map",
+          liveUrl: null,
+        },
+      ],
+    },
+    education: {
+      eyebrow: "04 / EDUCATION",
+      title1: "Knowledge &",
+      title2: "continuous growth.",
+      level: "POSTGRADUATE",
+      degree: "Master of Science",
+      description:
+        "Academic foundation combined with continuous hands-on learning in modern software development and information technology.",
+    },
+    contact: {
+      eyebrow: "HAVE A PROJECT OR OPPORTUNITY?",
+      title1: "Let's create",
+      title2a: "something ",
+      title2b: "great.",
+      aria: "Let's create something great.",
+      description:
+        "I'm interested in software development, application support and technology opportunities where I can build, learn and contribute.",
+      button: "START A CONVERSATION",
+      email: "Email",
+    },
+    footer: "DESIGNED & BUILT WITH REACT",
+  },
 
-const projects = [
-  {
-    number: "01",
-    title: "Enterprise IT Helpdesk",
-    subtitle: "Incident Management Platform",
-    description:
-      "A complete enterprise helpdesk platform for managing tickets, agents, SLA deadlines, priorities, activity logs and support operations.",
-    tech: ["React", "Node.js", "Express", "MySQL", "JWT"],
-    featured: true,
+  de: {
+    nav: {
+      home: "Start",
+      about: "Über mich",
+      skills: "Kenntnisse",
+      projects: "Projekte",
+      education: "Ausbildung",
+      contact: "Kontakt",
+      talk: "Kontakt",
+    },
+    roles: [
+      "Softwareentwickler",
+      "Application-Support-Spezialist",
+      "React-Entwickler",
+      "IT-Support-Engineer",
+    ],
+    hero: {
+      availability: "OFFEN FÜR BERUFLICHE MÖGLICHKEITEN",
+      intro: "HALLO, ICH BIN",
+      typingPrefix: "Ich arbeite als ",
+      description:
+        "Ich entwickle moderne Webanwendungen und praxisnahe Softwarelösungen mit Fokus auf Performance, Benutzerfreundlichkeit und reale Geschäftsanforderungen.",
+      explore: "Projekte ansehen",
+      contact: "Kontakt aufnehmen",
+      statProjects: "Portfolio-Projekte",
+      statStack: "Stack-Entwicklung",
+      statLearning: "Lernbereitschaft",
+      scroll: "SCROLLEN",
+    },
+    terminal: {
+      role: "Softwareentwickler / IT-Support",
+      status: "✓ Bereit, etwas Großartiges zu entwickeln",
+    },
+    about: {
+      eyebrow: "01 / ÜBER MICH",
+      title1: "Software entwickeln, die",
+      title2: "Probleme löst.",
+      lead:
+        "Ich bin technikbegeistert und konzentriere mich auf Softwareentwicklung, Application Support und die Entwicklung zuverlässiger digitaler Produkte.",
+      body:
+        "Mein Ansatz verbindet Entwicklungskompetenz mit Troubleshooting und strukturiertem Problemlösen. Ich setze Ideen gerne von der Konzeption bis zu einer funktionierenden Anwendung mit sauberer Benutzeroberfläche, strukturiertem Backend und praxisnahen Funktionen um.",
+      link: "MEINE PROJEKTE ANSEHEN",
+      focus: "AKTUELLER FOKUS",
+      focusItems: [
+        "Full-Stack-Entwicklung",
+        "Application Support",
+        "Enterprise-Systeme",
+        "Modernes UI / UX",
+      ],
+    },
+    skills: {
+      eyebrow: "02 / KENNTNISSE",
+      title1: "Mein Technologie-",
+      title2: "Werkzeugkasten.",
+      frontend: "Frontend",
+      backend: "Backend",
+      database: "Datenbank",
+      tools: "Tools",
+      responsive: "Responsives Design",
+      databaseDesign: "Datenbankdesign",
+    },
+    projects: {
+      eyebrow: "03 / AUSGEWÄHLTE PROJEKTE",
+      title1: "Projekte mit",
+      title2: "praktischem Mehrwert.",
+      featured: "HIGHLIGHT-PROJEKT",
+      live: "Live-Demo",
+      comingSoon: "BALD VERFÜGBAR",
+      github: "GitHub",
+      items: [
+        {
+          number: "01",
+          title: "Enterprise IT Helpdesk",
+          subtitle: "Incident-Management-Plattform",
+          description:
+            "Eine vollständige Enterprise-Helpdesk-Plattform zur Verwaltung von Tickets, Agents, SLA-Fristen, Prioritäten, Aktivitätsprotokollen und Support-Prozessen.",
+          tech: ["React", "Node.js", "Express", "MySQL", "JWT"],
+          githubUrl: "https://github.com/Noorwithcode/enterprise-it-helpdesk",
+          liveUrl: null,
+          featured: true,
+        },
+        {
+          number: "02",
+          title: "PharmaERP",
+          subtitle: "Abrechnung & Bestandsverwaltung für Apotheken",
+          description:
+            "Ein ERP-System für Apotheken mit Medikamentenabrechnung, chargenbezogener Lagerverwaltung, Einkauf, Verkauf, Retouren, Bestandsanpassungen und Geschäftsberichten.",
+          tech: ["React", "Node.js", "Express", "MySQL", "REST API"],
+          githubUrl: "https://github.com/Noorwithcode/PharmaERP",
+          liveUrl: null,
+        },
+        {
+          number: "03",
+          title: "PulseOps",
+          subtitle: "Server-Monitoring & Incident Operations",
+          description:
+            "Eine Operations-Plattform für Server-Monitoring, Heartbeat-Tracking, automatische Incident-Abläufe, Bestätigung, Untersuchung und Audit-Historie.",
+          tech: ["Node.js", "Express", "MySQL", "JWT", "REST API"],
+          githubUrl: "https://github.com/Noorwithcode/PulseOps",
+          liveUrl: null,
+        },
+        {
+          number: "04",
+          title: "Smart Map Platform",
+          subtitle: "Navigation & Standortsystem",
+          description:
+            "Eine interaktive Kartenanwendung mit Standortsuche, Routenführung, Markern und responsiver Navigation.",
+          tech: ["JavaScript", "Leaflet", "Nominatim", "CSS"],
+          githubUrl: "https://github.com/Noorwithcode/DSI-Map",
+          liveUrl: null,
+        },
+      ],
+    },
+    education: {
+      eyebrow: "04 / AUSBILDUNG",
+      title1: "Wissen &",
+      title2: "kontinuierliche Entwicklung.",
+      level: "MASTERABSCHLUSS",
+      degree: "Master of Science",
+      description:
+        "Akademische Grundlage kombiniert mit kontinuierlichem praxisorientiertem Lernen in moderner Softwareentwicklung und Informationstechnologie.",
+    },
+    contact: {
+      eyebrow: "HABEN SIE EIN PROJEKT ODER EINE MÖGLICHKEIT?",
+      title1: "Lassen Sie uns",
+      title2a: "etwas ",
+      title2b: "Großartiges schaffen.",
+      aria: "Lassen Sie uns etwas Großartiges schaffen.",
+      description:
+        "Ich interessiere mich für Möglichkeiten in Softwareentwicklung, Application Support und Technologie, bei denen ich entwickeln, lernen und einen Beitrag leisten kann.",
+      button: "KONTAKT AUFNEHMEN",
+      email: "E-Mail",
+    },
+    footer: "DESIGNT & ENTWICKELT MIT REACT",
   },
-  {
-    number: "02",
-    title: "Pharmacy ERP",
-    subtitle: "Billing & Stock Management",
-    description:
-      "ERP system for medicine inventory, billing, stock tracking, low-stock alerts and business management.",
-    tech: ["React", "Node.js", "MySQL", "REST API"],
-  },
-  {
-    number: "03",
-    title: "Smart Map Platform",
-    subtitle: "Navigation & Location System",
-    description:
-      "Interactive map application with location search, directions, markers and responsive navigation interfaces.",
-    tech: ["JavaScript", "Leaflet", "Nominatim", "CSS"],
-  },
-];
+};
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [language, setLanguage] = useState(() => {
+    return localStorage.getItem("portfolio_language") || "en";
+  });
   const [roleIndex, setRoleIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [deleting, setDeleting] = useState(false);
 
+  const t = content[language];
+  const roles = t.roles;
+  const projects = t.projects.items;
+
+  useEffect(() => {
+    localStorage.setItem("portfolio_language", language);
+    document.documentElement.lang = language;
+    setRoleIndex(0);
+    setDisplayText("");
+    setDeleting(false);
+  }, [language]);
 
   useEffect(() => {
     const currentRole = roles[roleIndex];
@@ -61,18 +314,16 @@ function App() {
         } else {
           setDeleting(true);
         }
+      } else if (displayText.length > 0) {
+        setDisplayText(currentRole.slice(0, displayText.length - 1));
       } else {
-        if (displayText.length > 0) {
-          setDisplayText(currentRole.slice(0, displayText.length - 1));
-        } else {
-          setDeleting(false);
-          setRoleIndex((prev) => (prev + 1) % roles.length);
-        }
+        setDeleting(false);
+        setRoleIndex((prev) => (prev + 1) % roles.length);
       }
     }, delay);
 
     return () => clearTimeout(timer);
-  }, [displayText, deleting, roleIndex]);
+  }, [displayText, deleting, roleIndex, language, roles]);
 
   useEffect(() => {
     const elements = document.querySelectorAll(".reveal");
@@ -125,43 +376,41 @@ function App() {
         </a>
 
         <div className={`nav-links ${menuOpen ? "active" : ""}`}>
-          <a href="#home" onClick={closeMenu}>
-            Home
-          </a>
-
-          <a href="#about" onClick={closeMenu}>
-            About
-          </a>
-
-          <a href="#skills" onClick={closeMenu}>
-            Skills
-          </a>
-
-          <a href="#projects" onClick={closeMenu}>
-            Projects
-          </a>
-
-          <a href="#education" onClick={closeMenu}>
-            Education
-          </a>
-
-          <a href="#contact" onClick={closeMenu}>
-            Contact
-          </a>
+          <a href="#home" onClick={closeMenu}>{t.nav.home}</a>
+          <a href="#about" onClick={closeMenu}>{t.nav.about}</a>
+          <a href="#skills" onClick={closeMenu}>{t.nav.skills}</a>
+          <a href="#projects" onClick={closeMenu}>{t.nav.projects}</a>
+          <a href="#education" onClick={closeMenu}>{t.nav.education}</a>
+          <a href="#contact" onClick={closeMenu}>{t.nav.contact}</a>
         </div>
 
-        <a href="#contact" className="nav-contact">
-          Let's Talk
-        </a>
+        <div className="nav-actions">
+          <label className="language-selector" aria-label="Select portfolio language">
+            <MdLanguage className="language-icon" />
+            <select
+              value={language}
+              onChange={(event) => setLanguage(event.target.value)}
+              aria-label="Language"
+            >
+              <option value="en">EN</option>
+              <option value="de">DE</option>
+            </select>
+          </label>
 
-        <button
-          className={`menu-btn ${menuOpen ? "open" : ""}`}
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+          <a href="#contact" className="nav-contact">
+            {t.nav.talk}
+          </a>
+
+          <button
+            className={`menu-btn ${menuOpen ? "open" : ""}`}
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle navigation"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
       </nav>
 
       {/* HERO */}
@@ -169,10 +418,10 @@ function App() {
         <div className="hero-content reveal">
           <div className="available-badge">
             <span className="status-dot"></span>
-            AVAILABLE FOR OPPORTUNITIES
+            {t.hero.availability}
           </div>
 
-          <p className="intro">HELLO, I'M</p>
+          <p className="intro">{t.hero.intro}</p>
 
           <h1 className="hero-name">
             NUR
@@ -181,7 +430,7 @@ function App() {
           </h1>
 
           <div className="typing-wrapper">
-            <span className="typing-prefix">I build as a </span>
+            <span className="typing-prefix">{t.hero.typingPrefix}</span>
 
             <span className="typing-text">
               {displayText}
@@ -189,36 +438,33 @@ function App() {
             </span>
           </div>
 
-          <p className="hero-description">
-            I create modern web applications and practical software solutions
-            focused on performance, usability and real-world business problems.
-          </p>
+          <p className="hero-description">{t.hero.description}</p>
 
           <div className="hero-buttons">
             <a href="#projects" className="primary-btn">
-              Explore Projects
+              {t.hero.explore}
               <span>↗</span>
             </a>
 
             <a href="#contact" className="secondary-btn">
-              Contact Me
+              {t.hero.contact}
             </a>
           </div>
 
           <div className="hero-stats">
             <div>
-              <strong>03+</strong>
-              <span>Strong Projects</span>
+              <strong>04</strong>
+              <span>{t.hero.statProjects}</span>
             </div>
 
             <div>
               <strong>Full</strong>
-              <span>Stack Development</span>
+              <span>{t.hero.statStack}</span>
             </div>
 
             <div>
               <strong>100%</strong>
-              <span>Learning Mindset</span>
+              <span>{t.hero.statLearning}</span>
             </div>
           </div>
         </div>
@@ -236,35 +482,19 @@ function App() {
             </div>
 
             <div className="terminal-body">
-              <p>
-                <span className="terminal-green">$</span> whoami
-              </p>
-
+              <p><span className="terminal-green">$</span> whoami</p>
               <p className="terminal-output">Nur Alam</p>
 
-              <p>
-                <span className="terminal-green">$</span> role
-              </p>
+              <p><span className="terminal-green">$</span> role</p>
+              <p className="terminal-output">{t.terminal.role}</p>
 
-              <p className="terminal-output">
-                Software Developer / IT Support
-              </p>
-
-              <p>
-                <span className="terminal-green">$</span> skills
-              </p>
-
+              <p><span className="terminal-green">$</span> skills</p>
               <p className="terminal-output terminal-array">
                 ["React", "Node.js", "MySQL", "JavaScript"]
               </p>
 
-              <p>
-                <span className="terminal-green">$</span> status
-              </p>
-
-              <p className="terminal-success">
-                ✓ Ready to build something amazing
-              </p>
+              <p><span className="terminal-green">$</span> status</p>
+              <p className="terminal-success">{t.terminal.status}</p>
 
               <p className="terminal-current">
                 <span className="terminal-green">$</span>
@@ -279,7 +509,7 @@ function App() {
         </div>
 
         <a href="#about" className="scroll-down">
-          <span>SCROLL</span>
+          <span>{t.hero.scroll}</span>
           <div className="scroll-line"></div>
         </a>
       </main>
@@ -287,56 +517,34 @@ function App() {
       {/* ABOUT */}
       <section id="about" className="section about-section">
         <div className="section-heading reveal">
-          <p>01 / ABOUT</p>
+          <p>{t.about.eyebrow}</p>
           <h2>
-            Building software that
+            {t.about.title1}
             <br />
-            <span>solves problems.</span>
+            <span>{t.about.title2}</span>
           </h2>
         </div>
 
         <div className="about-grid">
           <div className="about-large reveal">
-            <p className="about-lead">
-              I'm a technology enthusiast focused on software development,
-              application support and creating reliable digital products.
-            </p>
-
-            <p>
-              My approach combines development skills with troubleshooting and
-              problem-solving. I enjoy taking an idea from concept to a working
-              application with clean UI, structured backend systems and
-              practical features.
-            </p>
+            <p className="about-lead">{t.about.lead}</p>
+            <p>{t.about.body}</p>
 
             <a href="#projects" className="text-link">
-              SEE WHAT I'VE BUILT
+              {t.about.link}
               <span>→</span>
             </a>
           </div>
 
           <div className="about-card reveal">
-            <p className="card-label">CURRENT FOCUS</p>
+            <p className="card-label">{t.about.focus}</p>
 
-            <div className="focus-item">
-              <span>01</span>
-              <p>Full Stack Development</p>
-            </div>
-
-            <div className="focus-item">
-              <span>02</span>
-              <p>Application Support</p>
-            </div>
-
-            <div className="focus-item">
-              <span>03</span>
-              <p>Enterprise Systems</p>
-            </div>
-
-            <div className="focus-item">
-              <span>04</span>
-              <p>Modern UI / UX</p>
-            </div>
+            {t.about.focusItems.map((item, index) => (
+              <div className="focus-item" key={item}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <p>{item}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -344,34 +552,32 @@ function App() {
       {/* SKILLS */}
       <section id="skills" className="section skills-section">
         <div className="section-heading reveal">
-          <p>02 / SKILLS</p>
+          <p>{t.skills.eyebrow}</p>
 
           <h2>
-            My technology
+            {t.skills.title1}
             <br />
-            <span>toolbox.</span>
+            <span>{t.skills.title2}</span>
           </h2>
         </div>
 
         <div className="skills-grid">
           <div className="skill-card reveal">
             <div className="skill-number">01</div>
-
-            <h3>Frontend</h3>
+            <h3>{t.skills.frontend}</h3>
 
             <div className="skill-tags">
               <span>React</span>
               <span>JavaScript</span>
               <span>HTML5</span>
               <span>CSS3</span>
-              <span>Responsive Design</span>
+              <span>{t.skills.responsive}</span>
             </div>
           </div>
 
           <div className="skill-card reveal">
             <div className="skill-number">02</div>
-
-            <h3>Backend</h3>
+            <h3>{t.skills.backend}</h3>
 
             <div className="skill-tags">
               <span>Node.js</span>
@@ -383,20 +589,18 @@ function App() {
 
           <div className="skill-card reveal">
             <div className="skill-number">03</div>
-
-            <h3>Database</h3>
+            <h3>{t.skills.database}</h3>
 
             <div className="skill-tags">
               <span>MySQL</span>
               <span>SQL</span>
-              <span>Database Design</span>
+              <span>{t.skills.databaseDesign}</span>
             </div>
           </div>
 
           <div className="skill-card reveal">
             <div className="skill-number">04</div>
-
-            <h3>Tools</h3>
+            <h3>{t.skills.tools}</h3>
 
             <div className="skill-tags">
               <span>Git</span>
@@ -412,27 +616,28 @@ function App() {
       {/* PROJECTS */}
       <section id="projects" className="section projects-section">
         <div className="section-heading reveal">
-          <p>03 / SELECTED WORK</p>
+          <p>{t.projects.eyebrow}</p>
 
           <h2>
-            Projects that
+            {t.projects.title1}
             <br />
-            <span>make an impact.</span>
+            <span>{t.projects.title2}</span>
           </h2>
         </div>
 
         <div className="projects-container">
           {projects.map((project) => (
             <article
-              className={`project-card reveal ${project.featured ? "featured-project" : ""
-                }`}
+              className={`project-card reveal ${
+                project.featured ? "featured-project" : ""
+              }`}
               key={project.number}
             >
               <div className="project-top">
                 <span className="project-number">{project.number}</span>
 
                 {project.featured && (
-                  <span className="featured-label">FEATURED PROJECT</span>
+                  <span className="featured-label">{t.projects.featured}</span>
                 )}
 
                 <span className="project-arrow">↗</span>
@@ -440,15 +645,46 @@ function App() {
 
               <div className="project-content">
                 <p className="project-subtitle">{project.subtitle}</p>
-
                 <h3>{project.title}</h3>
-
                 <p className="project-description">{project.description}</p>
 
                 <div className="project-tech">
                   {project.tech.map((item) => (
                     <span key={item}>{item}</span>
                   ))}
+                </div>
+
+                <div className="project-actions">
+                  {project.liveUrl ? (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="project-link project-link-live"
+                    >
+                      <span>{t.projects.live}</span>
+                      <strong>↗</strong>
+                    </a>
+                  ) : (
+                    <span
+                      className="project-link project-link-live project-link-disabled"
+                      aria-label={`${project.title} ${t.projects.comingSoon}`}
+                    >
+                      <span>{t.projects.live}</span>
+                      <small>{t.projects.comingSoon}</small>
+                    </span>
+                  )}
+
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="project-link project-link-github"
+                  >
+                    <FaGithub />
+                    <span>{t.projects.github}</span>
+                    <strong>↗</strong>
+                  </a>
                 </div>
               </div>
             </article>
@@ -459,26 +695,23 @@ function App() {
       {/* EDUCATION */}
       <section id="education" className="section education-section">
         <div className="section-heading reveal">
-          <p>04 / EDUCATION</p>
+          <p>{t.education.eyebrow}</p>
 
           <h2>
-            Knowledge &
+            {t.education.title1}
             <br />
-            <span>continuous growth.</span>
+            <span>{t.education.title2}</span>
           </h2>
         </div>
 
         <div className="education-card reveal">
           <div className="education-left">
-            <span>POSTGRADUATE</span>
-            <h3>Master of Science</h3>
+            <span>{t.education.level}</span>
+            <h3>{t.education.degree}</h3>
           </div>
 
           <div className="education-right">
-            <p>
-              Academic foundation combined with continuous hands-on learning in
-              modern software development and information technology.
-            </p>
+            <p>{t.education.description}</p>
           </div>
         </div>
       </section>
@@ -486,22 +719,23 @@ function App() {
       {/* CONTACT */}
       <section id="contact" className="contact-section">
         <div className="contact-content reveal">
-          <p className="contact-small">HAVE A PROJECT OR OPPORTUNITY?</p>
+          <p className="contact-small">{t.contact.eyebrow}</p>
 
-          <h2 className="contact-title" aria-label="Let's create something great.">
-            <span className="contact-line contact-line-one">Let's create</span>
+          <h2 className="contact-title" aria-label={t.contact.aria}>
+            <span className="contact-line contact-line-one">
+              {t.contact.title1}
+            </span>
+
             <span className="contact-line contact-line-two">
-              something <span className="great-text">great.</span>
+              {t.contact.title2a}
+              <span className="great-text">{t.contact.title2b}</span>
             </span>
           </h2>
 
-          <p className="contact-description">
-            I'm interested in software development, application support and
-            technology opportunities where I can build, learn and contribute.
-          </p>
+          <p className="contact-description">{t.contact.description}</p>
 
           <a href="mailto:nooralamb012@gmail.com" className="contact-button">
-            <span>START A CONVERSATION</span>
+            <span>{t.contact.button}</span>
             <strong>↗</strong>
           </a>
 
@@ -537,16 +771,14 @@ function App() {
               <span className="social-icon gmail-icon">
                 <SiGmail />
               </span>
-              <span>Email</span>
+              <span>{t.contact.email}</span>
             </a>
           </div>
-
         </div>
 
-        {/* ========= FOOTER SECTION ========== */}
         <footer>
           <p>© 2026 NUR ALAM</p>
-          <p>DESIGNED & BUILT WITH REACT</p>
+          <p>{t.footer}</p>
         </footer>
       </section>
     </div>

@@ -83,7 +83,7 @@ const content = {
             "A complete enterprise helpdesk platform for managing tickets, agents, SLA deadlines, priorities, activity logs and support operations.",
           tech: ["React", "Node.js", "Express", "MySQL", "JWT"],
           githubUrl: "https://github.com/Noorwithcode/enterprise-it-helpdesk",
-          liveUrl: null,
+          liveUrl: "https://enterprise-it-helpdesk.vercel.app",
           featured: true,
         },
         {
@@ -209,7 +209,7 @@ const content = {
             "Eine vollständige Enterprise-Helpdesk-Plattform zur Verwaltung von Tickets, Agents, SLA-Fristen, Prioritäten, Aktivitätsprotokollen und Support-Prozessen.",
           tech: ["React", "Node.js", "Express", "MySQL", "JWT"],
           githubUrl: "https://github.com/Noorwithcode/enterprise-it-helpdesk",
-          liveUrl: null,
+          liveUrl: "https://enterprise-it-helpdesk.vercel.app",
           featured: true,
         },
         {

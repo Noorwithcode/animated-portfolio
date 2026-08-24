@@ -104,7 +104,7 @@ const content = {
             "An operations platform for server health monitoring, heartbeat tracking, automatic incident flows, acknowledgement, investigation and audit history.",
           tech: ["Node.js", "Express", "MySQL", "JWT", "REST API"],
           githubUrl: "https://github.com/Noorwithcode/PulseOps",
-          liveUrl: null,
+          liveUrl: "https://pulse-ops-rho.vercel.app",
         },
       ],
     },

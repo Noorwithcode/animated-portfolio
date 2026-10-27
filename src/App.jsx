@@ -106,6 +106,18 @@ const content = {
           githubUrl: "https://github.com/Noorwithcode/PulseOps",
           liveUrl: "https://pulse-ops-rho.vercel.app/login",
         },
+        {
+          number: "04",
+          title: "CycleNav+",
+          subtitle: "Cycling & Transit Navigation for Germany",
+          description:
+            "An Android app with turn-by-turn cycling navigation, voice route guidance, transit departures, saved routes, pilot offline routing and live location sharing with a browser viewer. Source code is private; screenshots and the Android demo are publicly available.",
+          tech: ["React Native", "Expo", "TypeScript", "NestJS", "PostgreSQL", "PostGIS", "MapLibre"],
+          githubUrl: "https://github.com/Noorwithcode/cyclenav-demo",
+          liveUrl: "https://github.com/Noorwithcode/cyclenav-demo/releases/download/v1.0.0/CycleNav-Plus-v1.0.0-arm64.apk",
+          liveLabel: "Download APK",
+          githubLabel: "View Demo",
+        },
       ],
     },
     education: {
@@ -231,6 +243,18 @@ const content = {
           tech: ["Node.js", "Express", "MySQL", "JWT", "REST API"],
           githubUrl: "https://github.com/Noorwithcode/PulseOps",
           liveUrl: null,
+        },
+        {
+          number: "04",
+          title: "CycleNav+",
+          subtitle: "Rad- und ÖPNV-Navigation für Deutschland",
+          description:
+            "Eine Android-App mit Abbiegehinweisen für Radtouren, sprachgestützter Routenhilfe, ÖPNV-Abfahrten, gespeicherten Routen, Offline-Routing im Pilotgebiet und Live-Standortfreigabe mit Browseransicht. Der Quellcode ist privat; Screenshots und die Android-Demo sind öffentlich verfügbar.",
+          tech: ["React Native", "Expo", "TypeScript", "NestJS", "PostgreSQL", "PostGIS", "MapLibre"],
+          githubUrl: "https://github.com/Noorwithcode/cyclenav-demo",
+          liveUrl: "https://github.com/Noorwithcode/cyclenav-demo/releases/download/v1.0.0/CycleNav-Plus-v1.0.0-arm64.apk",
+          liveLabel: "APK herunterladen",
+          githubLabel: "Demo ansehen",
         },
       ],
     },
@@ -438,7 +462,7 @@ function App() {
 
           <div className="hero-stats">
             <div>
-              <strong>03</strong>
+              <strong>{String(projects.length).padStart(2, "0")}</strong>
               <span>{t.hero.statProjects}</span>
             </div>
 
@@ -647,7 +671,7 @@ function App() {
                       rel="noreferrer"
                       className="project-link project-link-live"
                     >
-                      <span>{t.projects.live}</span>
+                      <span>{project.liveLabel || t.projects.live}</span>
                       <strong>↗</strong>
                     </a>
                   ) : (
@@ -655,7 +679,7 @@ function App() {
                       className="project-link project-link-live project-link-disabled"
                       aria-label={`${project.title} ${t.projects.comingSoon}`}
                     >
-                      <span>{t.projects.live}</span>
+                      <span>{project.liveLabel || t.projects.live}</span>
                       <small>{t.projects.comingSoon}</small>
                     </span>
                   )}
@@ -667,7 +691,7 @@ function App() {
                     className="project-link project-link-github"
                   >
                     <FaGithub />
-                    <span>{t.projects.github}</span>
+                    <span>{project.githubLabel || t.projects.github}</span>
                     <strong>↗</strong>
                   </a>
                 </div>
